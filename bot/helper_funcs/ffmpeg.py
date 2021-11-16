@@ -29,7 +29,7 @@ from bot import (
 async def convert_video(video_file, output_directory, total_time, bot, message, target_percentage, isAuto):
     # https://stackoverflow.com/a/13891070/4723940
     out_put_file_name = output_directory + \
-        "/" + str(round(time.time())) + ".mp4"
+        "/" + str(round(time.time())) + "720p HEVC 320k x265 [MwK.OTT]" + ".mp4"
     progress = output_directory + "/" + "progress.txt"
     with open(progress, 'w') as f:
       pass
@@ -43,13 +43,45 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
       progress,
       "-i",
       video_file,
-      "-c:v", 
-      "h264",
-      "-preset", 
-      "ultrafast",
-      "-tune",
-      "film",
+      "-map",
+      "0", 
+      "-c:v",
+      "libx265",
+      "-tag:v",
+      "hvc1",
+      "-metadata",
+      "title=SML (@mwkOTT)",
+      "-metadata:s:v",
+      "title=shamilnelli [MwKOTT]"
+      "-metadata:s:a",
+      "title=SML // MwKOTT"
+      "-metadata:s:v",
+      "comment=Copyrights Are By @shamiLneLLi on telegram and instagram for https://t.me/mwkott , haters stepback",
+      "-pix_fmt", 
+      "yuv420p", 
+      "-preset",
+      "medium", 
+      "-s", 
+      "1280x720",
+      "-crf", 
+      "22",
       "-c:a",
+      "libopus", 
+      "-profile:a", 
+      "aac", 
+      "-threads",
+      "8",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "320k",
+      "-ac", 
+      "2",
+      "-ab", 
+      "320k", 
+      "-vbr",
+      "2", 
+      "-c:s",
       "copy",
       out_put_file_name
     ]
