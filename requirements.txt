@@ -3,3 +3,4 @@ Pillow
 psutil
 git+git://github.com/sahadz/pyrogram-1@asyncio#pyrogram
 tgcrypto
+ffmpeg-python
